@@ -44,10 +44,8 @@ class Pizza(models.Model):
 class Order(models.Model):
     date = models.DateTimeField(default=timezone.now)
     customer = models.ForeignKey(Customer,  on_delete=models.CASCADE, default=None)
-    # customer = models.ManyToManyField(Customer)
-    # pizza = models.ForeignKey(Pizza, on_delete=models.CASCADE, default=None)
     pizza = models.ManyToManyField(Pizza)
-    # number = models.PositiveIntegerField(default=1)
+    number = models.PositiveIntegerField(default=1)
     cost = models.DecimalField(max_digits=10, decimal_places=2, default=0)
     comments = models.TextField(default=None, blank=True)
 
